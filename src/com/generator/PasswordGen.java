@@ -1,5 +1,4 @@
 package com.generator;
-import java.util.Random;
 
 /***
  * 
@@ -37,16 +36,17 @@ public class PasswordGen {
 	 * @return It will return the generated password in the form of string.
 	 */
 	public String genratePassword(int password_length) {
+		password.setLength(0);
 		if(password_length < 5) {
 			return "Password length should be more than 5 character";
 		}else {
-			Random random =new Random();
+			
 			int row = 0;
 			int cIndex = 0;
 			for(int i=0;i<password_length;i++) {
 			
-				row = random.nextInt(password_combination.length);
-				cIndex = random.nextInt(password_combination[row].length());
+				row = (int) (Math.random() * (password_combination.length));
+				cIndex = (int)(Math.random() * (password_combination[row].length()));
 				password.append(password_combination[row].charAt(cIndex));
 				
 			}		
